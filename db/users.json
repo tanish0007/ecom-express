@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "username": "user1",
+    "email": "user1@gmail.com",
+    "password": "12345678",
+    "isAdmin": true
+  },
+  {
+    "id": 2,
+    "username": "user2",
+    "email": "user2@gmail.com",
+    "password": "12345678",
+    "isAdmin": true
+  },
+  {
+    "id": 1751988274296,
+    "username": "user4",
+    "email": "user4@",
+    "password": "1234",
+    "isAdmin": false
+  },
+  {
+    "id": 1752036507942,
+    "username": "user3",
+    "email": "user3@",
+    "password": "12345678",
+    "isAdmin": false
+  }
+]
