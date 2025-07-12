@@ -1,8 +1,12 @@
 const express = require("express");
-const { addToCart } = require("../controllers/cartController");
+const { fetchCart, addToCart, emptyCart, deleteWholeProduct, IncDecQuantity } = require("../controllers/cartController");
 
 const router = express.Router();
 
-router.post("/add", addToCart);
+router.get("/:userId", fetchCart);  // fetch the cart(all products) of a specific user..
+router.post("/:userId", addToCart); // add single product to cart..
+router.delete("/:userId", emptyCart);   // Empty cart of a user
+router.delete("/:userId/:productId", deleteWholeProduct);   // delete a whole product from the cart..
+router.patch("/:userId/:productId", IncDecQuantity);    // increase or decrease of quantity of a product
 
 module.exports = router;
