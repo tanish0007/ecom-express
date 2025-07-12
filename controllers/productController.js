@@ -16,7 +16,7 @@ async function getAllProducts (req, res){
             })
         }
 
-        const LIMIT = parseInt(limit) || 0;
+        const LIMIT = parseInt(limit) || products.length;
         const SKIP = parseInt(skip) || 0;
 
         const paginatedProducts = products.slice(SKIP, SKIP+LIMIT);
@@ -65,7 +65,7 @@ async function getProduct (req, res) {
 
 async function createProduct (req, res) {
     try{
-        const { title, price, stock, description , imageURL} = req.body;
+        const { title, price, stock, description , thumbnail} = req.body;
         if(!title || !price || !stock || !description ){
             return res.status(400).json({
                 success: false,
@@ -94,7 +94,7 @@ async function createProduct (req, res) {
             })
         }
 
-        const newProduct = { id: Date.now(), title, price, stock, description, imageURL }
+        const newProduct = { id: Date.now(), title, price, stock, description, thumbnail }
         products.push(newProduct);
         await writeJSON('products.json', products);
         return res.status(201).json({
@@ -115,7 +115,7 @@ async function createProduct (req, res) {
 async function updateProduct (req, res){
     try{
         const productID = parseInt(req.params.id);
-        const { title, price, description, stock, imageURL} = req.body;
+        const { title, price, description, stock, thumbnail} = req.body;
         if(!title || !price || !description || !stock ){
             return res.status(400).json({
                 success: false,
@@ -146,7 +146,7 @@ async function updateProduct (req, res){
         products[existproductIndex].price = price;
         products[existproductIndex].description = description;
         products[existproductIndex].stock = stock;
-        products[existproductIndex].imageURL = imageURL || products[existproductIndex].imageURL;
+        products[existproductIndex].thumbnail = thumbnail || products[existproductIndex].thumbnail;
 
         await writeJSON('products.json', products);
         
