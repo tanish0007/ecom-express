@@ -11,7 +11,8 @@ async function readJSON(filename) {
 
 async function writeJSON(filename, data) {
     const fullPath = PATH.join(dbPath, filename);
-    await FS.writeFile(fullPath, JSON.stringify(jsonData, null, 2), 'utf-8');
+    await FS.writeFile(fullPath, JSON.stringify(data, null, 2), 'utf-8');
+    return { written: true };
 }   
 
 module.exports = { readJSON, writeJSON };
