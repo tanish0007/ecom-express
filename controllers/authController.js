@@ -27,7 +27,12 @@ async function signup( req, res ) {
         return res.status(201).json({
             "success": true,
             "message": "User registered successfully.\nYou're redirecting to login page..",
-            "user": newUser
+            "user": {
+                id: newUser.id,
+                username: newUser.username,
+                email: newUser.email,
+                isAdmin: newUser.isAdmin
+            }
         })
     }
     catch(err) {
@@ -68,7 +73,7 @@ async function login( req, res ) {
         console.log(err);
         return res.status(500).json({
             "success" : false,
-            "user": "Internal server error"
+            "error": "Internal server error"
         })
     }
 }

@@ -26,5 +26,40 @@
     "email": "user3@mail.com",
     "password": "12345678",
     "isAdmin": false
+  },
+  {
+    "id": 1752438629456,
+    "username": "tanish0007",
+    "email": "jangratanish0007@gmail.com",
+    "password": "T@nish07",
+    "isAdmin": true
+  },
+  {
+    "id": 1752439634615,
+    "username": "Amit003",
+    "email": "amit@mail.com",
+    "password": "amit@123",
+    "isAdmin": false
+  },
+  {
+    "id": 1752439800963,
+    "username": "sheetal",
+    "email": "sheetal@mail.com",
+    "password": "1234",
+    "isAdmin": false
+  },
+  {
+    "id": 1752439823611,
+    "username": "muskan",
+    "email": "muskan@mail.com",
+    "password": "muskan@123",
+    "isAdmin": false
+  },
+  {
+    "id": 1752440203840,
+    "username": "sakshi",
+    "email": "sakshi@mail.com",
+    "password": "12345678",
+    "isAdmin": false
   }
 ]

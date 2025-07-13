@@ -207,6 +207,11 @@ function createSignupForm() {
             return;
         }
 
+        if (nameInput.value.length < 3) {
+            errorText.textContent = "Username must be at least 3 characters";
+            return;
+        }
+
         if (!validateEmail(emailInput.value)) {
             errorText.textContent = "Please enter a valid email";
             return;
@@ -215,46 +220,26 @@ function createSignupForm() {
         disableFormButtons();
         signupBtn.textContent = "Registering...";
 
-        const response = await makeAPIRequest("http://localhost:6565/api/auth/signup", {
-            username: nameInput.value,
-            email: emailInput.value,
-            password: passwordInput.value,
-            isAdmin: adminCheckbox.checked
-        });
-
-        if (response && response.success) {
-            signupBtn.textContent = "Registration Successful";
-            form.reset();
-            errorText.textContent = response.message;
-            errorText.style.color = "green";
-
-            const loginResponse = await makeAPIRequest('http://localhost:6565/api/auth/login', {
-                email: emailInput.value,
-                password: passwordInput.value
+        try {
+            const response = await makeAPIRequest("http://localhost:6565/api/auth/signup", {
+                username: nameInput.value.trim(),
+                email: emailInput.value.trim(),
+                password: passwordInput.value,
+                isAdmin: adminCheckbox.checked
             });
-
-            signupBtn.textContent = "Logging in...";
-            if(loginResponse && loginResponse.success) {
-                localStorage.setItem("loggedInUser", JSON.stringify(loginResponse.user));
-                
-                if(loginResponse.user.isAdmin) {
-                    window.location.href = 'admin.html';
-                } else {
-                    window.location.href = 'user.html';
-                }
-            } else {
+            if (response && response.success) {
+                errorText.textContent = response.message;
+                errorText.style.color = "green";
                 showSignUpForm = false;
                 toggleForms();
-                enableFormButtons();
-                signupBtn.textContent = "Register";
+            } else {
+                errorText.textContent = response?.error || "Registration failed";
+                errorText.style.color = "red";
             }
-        } else {
-            errorText.textContent = response.error;
-            errorText.style.color = "red";
+        } finally {
             enableFormButtons();
             signupBtn.textContent = "Register";
         }
-        signupBtn.textContent = "Register";
     });
 
     heroPage.insertBefore(form, toggleText);
@@ -289,9 +274,6 @@ function checkLoggedInUser() {
 }
 
 window.addEventListener('focus', () => {
-    if (!localStorage.getItem("loggedInUser")) {
-        window.location.reload();
-    }
     const user = JSON.parse(localStorage.getItem("loggedInUser"));
     if (user.isAdmin) {
         window.location.href = 'admin.html';
