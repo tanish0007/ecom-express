@@ -2,8 +2,16 @@
   {
     "id": 1752076659316,
     "userId": 1752036507942,
-    "products": [],
-    "totalAmount": 0,
-    "totalQuantity": 0
+    "products": [
+      {
+        "id": 7,
+        "title": "Chanel Coco Noir Eau De",
+        "quantity": 2,
+        "totalPrice": 259.98,
+        "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/thumbnail.webp"
+      }
+    ],
+    "totalAmount": 259.9800000000001,
+    "totalQuantity": 2
   }
 ]
