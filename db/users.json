@@ -56,9 +56,16 @@
     "isAdmin": false
   },
   {
-    "id": 1752440203840,
+    "id": 1752440570169,
     "username": "sakshi",
     "email": "sakshi@mail.com",
+    "password": "12345678",
+    "isAdmin": false
+  },
+  {
+    "id": 1752441210531,
+    "username": "random",
+    "email": "random@mail.com",
     "password": "12345678",
     "isAdmin": false
   }

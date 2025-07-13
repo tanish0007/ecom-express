@@ -227,9 +227,11 @@ function createSignupForm() {
                 password: passwordInput.value,
                 isAdmin: adminCheckbox.checked
             });
+            console.log(response);
             if (response && response.success) {
                 errorText.textContent = response.message;
                 errorText.style.color = "green";
+
                 showSignUpForm = false;
                 toggleForms();
             } else {
@@ -275,10 +277,15 @@ function checkLoggedInUser() {
 
 window.addEventListener('focus', () => {
     const user = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (user.isAdmin) {
-        window.location.href = 'admin.html';
-    } else {
-        window.location.href = 'user.html';
+    if(!user){
+        return;
+    }
+    else{
+        if (user.isAdmin) {
+            window.location.href = 'admin.html';
+        } else {
+            window.location.href = 'user.html';
+        }
     }
 });
 
