@@ -289,8 +289,14 @@ function checkLoggedInUser() {
 }
 
 window.addEventListener('focus', () => {
-    if (localStorage.getItem("loggedInUser")) {
+    if (!localStorage.getItem("loggedInUser")) {
         window.location.reload();
+    }
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (user.isAdmin) {
+        window.location.href = 'admin.html';
+    } else {
+        window.location.href = 'user.html';
     }
 });
 

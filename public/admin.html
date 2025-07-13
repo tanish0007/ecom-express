@@ -4,10 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin | ByteMart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
-    <div class="container"></div>
+    <div class="container">
+        <nav class="nav">
+            <div>
+                <h1 class="nav-text">
+                    <span class="logo-text">Byte Mart</span>
+                    &nbsp;
+                    <span class="vertical-line">|</span>
+                    &nbsp;
+                    <span class="user-logo">
+                        <i class="fa-solid fa-user-secret"></i>
+                        <span class="admin-name"></span>
+                    </span>
+            </div>
+            <div class="btn-box">
+                <button id="logout-btn" class="button"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;Logout</button>
+            </div>
+        </nav>
+        <section class="hero-page">
+            <div class="add-item-box">
+                <div class="inputs">
+                    <input type="text" id="title" placeholder="Title of product">
+                    <input type="number" id="price" placeholder="Price of product">
+                    <input type="number" id="stock" placeholder="Stock Available">
+                    <input type="url" id="thumbnail" placeholder="Enter URL of product image">
+                    <textarea id="description" placeholder="Product description"></textarea>
+                </div>
+                <div class="buttons">
+                    <button id="addBtn" class="button"><i class="fa-solid fa-plus"></i> Add Item</button>
+                </div>
+            </div>
+            <div class="items">
+                <!-- items will come from DOM -->
+            </div>
+        </section>
+    </div>
 
     <script src="js/admin.js"></script>
 </body>
