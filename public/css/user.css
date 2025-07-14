@@ -1,5 +1,375 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Dosis", sans-serif;
+    font-weight: 500;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../images/background.jpg');
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.nav {
+    width: 85%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background-color: #ffffff0e;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin-top: 20px;
+    color: white;
+    transition: .3s;
+}
+
+.nav:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.363);
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 15px;
+    color: #8a2be2;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logout-btn {
+    background-color: rgb(201, 30, 30);
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+.nav-text {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    font-weight: 800;
+    font-size: 25px;
+}
+
+.vertical-line {
+    font-size: 40px;
+    margin: 0 5px;
+}
+
+.user-logo {
+    display: inline-flex;
+    align-items: center;
+    background-color: white;
+    color: #000000;
+    padding: 12px;
+    font-size: 20px;
+    border-radius: 50px;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    max-width: 43px;
+    height: 43px;
+    cursor: pointer;
+}
+
+.user-logo:hover {
+    max-width: 200px;
+}
+
+.user-logo i {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.user-name {
+    font-size: 17px;
+    color: #000000;
+    margin-left: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.5s ease;
+}
+
+.user-logo:hover .user-name {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ---------------- hero page --------------- */
+.hero-page {
+    width: 85%;
+    height: 100%;
+    min-height: 0;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 10px;
+}
+/* 
+.add-item-box {
+    width: 25%;
+    height: fit-content;
+    background-color: #ffffff0e;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 20px;
+    transition: .3s;
+}
+
+.add-item-box:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.363);
+}
+
+.inputs {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 20px;
+}
+
+.inputs input {
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.158);
+    backdrop-filter: blur(10px);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.inputs input::placeholder,
+.inputs textarea::placeholder {
+    color: white;
+}
+
+.inputs textarea {
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 200px;
+    resize: none;
+    overflow-y: scroll;
+    background-color: rgba(255, 255, 255, 0.158);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.inputs input:focus {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.363);
+}
+
+.inputs textarea:focus {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.363);
+}
+
+.inputs textarea::-webkit-scrollbar {
+    width: 6px;
+}
+
+.inputs textarea::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.inputs textarea::-webkit-scrollbar-thumb {
+    background-color: rgba(56, 56, 56, 0.753);
+    border-radius: 3px;
+}
+
+.inputs textarea::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+#addBtn {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.363);
+    background-color: #8a2be2;
+    color: white;
+    font-size: 17px;
+} */
+
+/* ----------------- items container ---------------- */
+/* --------------- jisme items aayenge -------------- */
+
+/*.items-container{
+    width: 70%;
+    height: 100%;
+    background-color: #ffffff0e;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    transition: .3s;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.3) transparent;
+}*/
+
+/* ------- css is adding ------- */
+.items{
+    width: 100%;
+    height: 90%;
+    background-color: #ffffff0e;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    transition: .3s;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: auto auto auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.3) transparent;
+}
+.items:hover{
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.363);
+}
+.items::-webkit-scrollbar {
+    width: 6px; 
+}
+
+.items::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.items::-webkit-scrollbar-thumb {
+    background-color: rgba(255,255,255,0.3); 
+    border-radius: 3px; 
+}
+
+.items::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255,255,255,0.5); 
+}
+
+.item {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px;
+    color: #fff;
+
+    width: auto;
+    height: auto;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.item:hover {
+    box-shadow: 0 6px 14px rgba(255,255,255,0.2);
+    border: 1px solid white;
+}
+
+.image-box{
+    width: 100%;
+    height: 300px;
+}
+.image-box img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.title-row{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title-row h3 {
+    flex: 1;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.title-row span{
+    font-size: 20px;
+    font-weight: 800;
+}
+.product-info p{
+    font-size: 17px;
+    font-weight: 700;
+}
+.product-info .description{
+    color: rgba(255, 255, 255, 0.822);
+}
+.button-box {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.button-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.button-danger:hover {
+    background-color: #c0392b;
+}
+
+.button-success {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.pagination {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+#pageInfo{
+    color: white;
+}
+#prevBtn, #nextBtn{
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
 }

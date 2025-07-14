@@ -8055,7 +8055,7 @@
   },
   {
     "id": 137,
-    "title": "American Football",
+    "title": "American",
     "description": "The American Football is a classic ball used in American football games. It is designed for throwing and catching, making it an essential piece of equipment for the sport.",
     "category": "sports-accessories",
     "price": 19.99,
@@ -11627,5 +11627,13 @@
       "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/3.webp"
     ],
     "thumbnail": "https://cdn.dummyjson.com/product-images/womens-watches/women's-wrist-watch/thumbnail.webp"
+  },
+  {
+    "id": 1752465869265,
+    "title": "Mango",
+    "price": 10,
+    "stock": 20,
+    "description": "Mango is tasty",
+    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8XrWHZACpCfw7mUoyP3_b1zDUSy_JdS_G4g&s"
   }
 ]

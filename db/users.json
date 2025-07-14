@@ -68,5 +68,19 @@
     "email": "random@mail.com",
     "password": "12345678",
     "isAdmin": false
+  },
+  {
+    "id": 1752484053926,
+    "username": "rachna",
+    "email": "rachna@gmail.com",
+    "password": "rachna",
+    "isAdmin": false
+  },
+  {
+    "id": 1752484115298,
+    "username": "vansh",
+    "email": "vansh@gmail.com",
+    "password": "vansh",
+    "isAdmin": true
   }
 ]
