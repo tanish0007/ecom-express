@@ -102,26 +102,25 @@ function addToDom(item) {
     description.classList.add("description");
     
     const fullDesc = item.description || "No description available";
-    const shortDesc = fullDesc.length > 100 ? fullDesc.slice(0, 100) + "..." : fullDesc;
+    // const shortDesc = fullDesc.length > 100 ? fullDesc.slice(0, 100) + "..." : fullDesc;
     
-    description.textContent = shortDesc;
+    description.textContent = fullDesc;
     
-    // Only add click functionality if description is long
-    if (fullDesc.length > 100) {
-        description.style.cursor = "pointer";
-        let isExpanded = false;
+    // if (fullDesc.length > 100) {
+    //     description.style.cursor = "pointer";
+    //     let isExpanded = false;
         
-        description.addEventListener("click", () => {
-            isExpanded = !isExpanded;
-            description.textContent = isExpanded ? fullDesc : shortDesc;
-        });
-    }
+    //     description.addEventListener("click", () => {
+    //         isExpanded = !isExpanded;
+    //         description.textContent = isExpanded ? fullDesc : shortDesc;
+    //     });
+    // }
 
-    // Create button box
     const btnBox = document.createElement("div");
     btnBox.classList.add("button-box");
     const cartBtn = document.createElement("button");
     cartBtn.className = "addToCart";
+    cartBtn.classList.add('button')
     cartBtn.textContent = "Add to Cart";
     
     if (item.quantity <= 0) {
@@ -133,96 +132,30 @@ function addToDom(item) {
     
     btnBox.appendChild(cartBtn);
 
-    // Assemble product info
-    productInfo.appendChild(titleRow);
-    productInfo.appendChild(stock);
-    productInfo.appendChild(description);
+    const productDetails = document.createElement('div');
+    productDetails.classList.add('product-details');
+
+    productDetails.appendChild(titleRow);
+    productDetails.appendChild(stock);
+    productDetails.appendChild(description);
+    productInfo.appendChild(productDetails);
     productInfo.appendChild(btnBox);
 
-    // Assemble the complete item
+    const heartIcon = document.createElement('span');
+    heartIcon.classList.add('heart-box');
+    heartIcon.innerHTML = `
+        <label class="wishlist-toggle">
+            <input type="checkbox" class="wishlist-checkbox">
+            <i class="heart-icon fa-solid fa-heart"></i>
+        </label>
+    `;
+
+    div.appendChild(heartIcon);
     div.appendChild(imageBox);
     div.appendChild(productInfo);
 
-    // Add to DOM
     itemsBox.appendChild(div);
 }
-// function addToDom(item) {
-//     const div = document.createElement("div");
-//     div.setAttribute("id", item.id);
-//     div.classList.add("item");
-    
-//     if (item.quantity <= 0) {
-//         div.classList.add("out-of-stock");
-//     }
-
-//     const ul = document.createElement("ul");
-
-//     const nameLi = document.createElement("li");
-//     nameLi.classList.add("itemName");
-//     nameLi.innerHTML = `<strong>Name:</strong> ${item.name || "Unnamed Item"}`;
-//     ul.appendChild(nameLi);
-
-//     const priceLi = document.createElement("li");
-//     priceLi.classList.add("itemPrice");
-//     priceLi.innerHTML = `<strong>Price:</strong> $${(item.price || 0).toFixed(2)}`;
-//     ul.appendChild(priceLi);
-
-//     const descLi = document.createElement("li");
-//     descLi.classList.add("itemDesc");
-
-//     const fullDesc = item.description || "No description available";
-//     const shortDesc = fullDesc.length > 100 ? fullDesc.slice(0, 100) + "..." : fullDesc;
-
-//     const descSpan = document.createElement("span");
-//     descSpan.textContent = shortDesc;
-
-//     const toggleBtn = document.createElement("button");
-//     toggleBtn.textContent = fullDesc.length > 100 ? "Read More" : "";
-//     toggleBtn.classList.add("read-more-btn");
-
-//     let isExpanded = false;
-
-//     toggleBtn.addEventListener("click", () => {
-//         isExpanded = !isExpanded;
-//         descSpan.textContent = isExpanded ? fullDesc : shortDesc;
-//         toggleBtn.textContent = isExpanded ? "Show Less" : "Read More";
-//     });
-
-//     descLi.innerHTML = `<strong>Description:</strong> `;
-//     descLi.appendChild(descSpan);
-//     if (fullDesc.length > 100) {
-//         descLi.appendChild(document.createTextNode(" "));
-//         descLi.appendChild(toggleBtn);
-//     }
-
-//     ul.appendChild(descLi);
-
-//     const stockLi = document.createElement("li");
-//     stockLi.classList.add("itemStock");
-//     stockLi.innerHTML = `<strong>Stock:</strong> ${item.quantity || 0}`;
-//     ul.appendChild(stockLi);
-
-//     div.appendChild(ul);
-
-//     const btnBox = document.createElement("div");
-//     btnBox.classList.add("button-box");
-
-//     const cartBtn = document.createElement("button");
-//     cartBtn.className = "button button-success";
-//     cartBtn.innerHTML = '<i class="fas fa-cart-plus"></i> Add to Cart';
-    
-//     if (item.quantity <= 0) {
-//         cartBtn.disabled = true;
-//         cartBtn.classList.add("disabled");
-//     } else {
-//         cartBtn.addEventListener("click", () => addToCart(item.id));
-//     }
-    
-//     btnBox.appendChild(cartBtn);
-
-//     div.appendChild(btnBox);
-//     itemsBox.appendChild(div);
-// }
 
 function setupPagination() {
     if (!paginationBox) return;

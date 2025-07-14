@@ -33,10 +33,12 @@
     margin-top: 20px;
     color: white;
     transition: .3s;
+    border: 1px solid transparent;
 }
 
 .nav:hover {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.363);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    border: 1px solid white;
 }
 
 .button {
@@ -122,138 +124,25 @@
     flex-direction: column;
     row-gap: 10px;
 }
-/* 
-.add-item-box {
-    width: 25%;
-    height: fit-content;
-    background-color: #ffffff0e;
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    padding: 20px;
-    transition: .3s;
-}
-
-.add-item-box:hover {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.363);
-}
-
-.inputs {
-    display: grid;
-    grid-template-columns: auto;
-    gap: 20px;
-}
-
-.inputs input {
-    color: white;
-    padding: 0.75rem;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.158);
-    backdrop-filter: blur(10px);
-    font-size: 17px;
-    font-weight: 700;
-}
-
-.inputs input::placeholder,
-.inputs textarea::placeholder {
-    color: white;
-}
-
-.inputs textarea {
-    padding: 0.75rem;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    width: 100%;
-    height: 200px;
-    resize: none;
-    overflow-y: scroll;
-    background-color: rgba(255, 255, 255, 0.158);
-    backdrop-filter: blur(10px);
-    color: white;
-    font-size: 17px;
-    font-weight: 700;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-}
-
-.inputs input:focus {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.363);
-}
-
-.inputs textarea:focus {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.363);
-}
-
-.inputs textarea::-webkit-scrollbar {
-    width: 6px;
-}
-
-.inputs textarea::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.inputs textarea::-webkit-scrollbar-thumb {
-    background-color: rgba(56, 56, 56, 0.753);
-    border-radius: 3px;
-}
-
-.inputs textarea::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
-.buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-}
-
-#addBtn {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.363);
-    background-color: #8a2be2;
-    color: white;
-    font-size: 17px;
-} */
-
-/* ----------------- items container ---------------- */
-/* --------------- jisme items aayenge -------------- */
-
-/*.items-container{
-    width: 70%;
-    height: 100%;
-    background-color: #ffffff0e;
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    transition: .3s;
-    overflow-y: scroll;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255,255,255,0.3) transparent;
-}*/
-
-/* ------- css is adding ------- */
 .items{
+    padding: 20px;
     width: 100%;
     height: 90%;
     background-color: #ffffff0e;
     backdrop-filter: blur(10px);
     border-radius: 10px;
+    border: 1px solid transparent;
     transition: .3s;
     display: grid;
     overflow: hidden;
+    gap: 20px;
     grid-template-columns: auto auto auto;
     scrollbar-width: thin;
     scrollbar-color: rgba(255,255,255,0.3) transparent;
 }
 .items:hover{
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.363);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    border: 1px solid white;
 }
 .items::-webkit-scrollbar {
     width: 6px; 
@@ -273,14 +162,15 @@
 }
 
 .item {
+    position: relative;
+
     background: rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(8px);
     border-radius: 12px;
     padding: 15px;
-    margin: 10px;
     color: #fff;
 
-    width: auto;
+    width: 100%;
     height: auto;
 
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -295,10 +185,36 @@
     box-shadow: 0 6px 14px rgba(255,255,255,0.2);
     border: 1px solid white;
 }
+.heart-box{
+    position: absolute;
+}
+.wishlist-toggle {
+  cursor: pointer;
+  display: inline-block;
+}
 
+.wishlist-checkbox {
+  display: none;
+}
+
+.heart-icon {
+  font-size: 24px; 
+  color: #ccc; 
+  transition: color 0.2s ease;
+}
+
+.wishlist-checkbox:checked + .heart-icon {
+  color: red;
+  font-weight: 900;
+  text-shadow: 0 0 20px white;
+}
 .image-box{
-    width: 100%;
+    flex: 1;
+    width: 50%; 
     height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .image-box img {
     width: 100%;
@@ -307,16 +223,26 @@
     object-fit: cover;
     border-radius: 10px;
 }
-
-.title-row{
-    margin-top: 10px;
+.product-info{
+    width: 50%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+.product-details{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.title-row{
+    display: flex;
+    /* align-items: center; */
     justify-content: space-between;
 }
 .title-row h3 {
     flex: 1;
-    font-size: 20px;
+    font-size: 20px;    
     font-weight: 800;
 }
 
@@ -332,12 +258,14 @@
     color: rgba(255, 255, 255, 0.822);
 }
 .button-box {
-    margin-top: 10px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: flex-end;
 }
-
+.addToCart{
+    width: 100%;
+    padding: 13px 30px;
+}
 .button:hover {
     opacity: 0.9;
 }
@@ -365,11 +293,29 @@
     gap: 20px;
 }
 
+
 #pageInfo{
     color: white;
 }
 #prevBtn, #nextBtn{
     background: rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(8px);
-    border-radius: 12px;
+    border-radius:7px;
+    padding: 15px 23px;
+    color: white;
+    transition: .2s ease-in-out;
+    border: 1px solid transparent;
+}
+#prevBtn:hover, #nextBtn:hover{
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    border: 1px solid white;
+}
+#prevBtn:disabled, #nextBtn:disabled{
+    color: gray;
+    cursor: not-allowed;
+}
+
+#prevBtn:disabled:hover, #nextBtn:disabled:hover{
+    box-shadow: 0 0 10px gray;
+    border: 1px solid gray;
 }
