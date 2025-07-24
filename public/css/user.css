@@ -275,7 +275,9 @@
 .button-box {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    column-gap: 20px;
+    align-items: center;
 }
 .addToCart{
     width: 100%;
@@ -333,4 +335,39 @@
 #prevBtn:disabled:hover, #nextBtn:disabled:hover{
     box-shadow: 0 0 10px gray;
     border: 1px solid gray;
+}
+
+
+/* For Cart things */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    align-items: center;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.quantity-display {
+    min-width: 20px;
+    text-align: center;
+}
+
+.view-cart-btn {
+    width: 100%;
 }

@@ -9,9 +9,16 @@
         "quantity": 2,
         "totalPrice": 259.98,
         "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/thumbnail.webp"
+      },
+      {
+        "id": 6,
+        "title": "Calvin Klein CK One",
+        "quantity": 3,
+        "totalPrice": 149.97,
+        "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/thumbnail.webp"
       }
     ],
-    "totalAmount": 259.9800000000001,
-    "totalQuantity": 2
+    "totalAmount": 409.9500000000001,
+    "totalQuantity": 5
   }
 ]

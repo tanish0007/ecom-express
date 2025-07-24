@@ -4,21 +4,63 @@
     "userId": 1752036507942,
     "products": [
       {
-        "id": 2,
-        "title": "Eyeshadow Palette",
-        "price": 19.99,
-        "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
-        "stock": 34
-      },
-      {
         "id": 3,
         "title": "Powder Canister",
         "price": 14.99,
+        "stock": 89,
         "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
-        "stock": 89
+        "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp"
+      },
+      {
+        "id": 6,
+        "title": "Calvin Klein CK One",
+        "price": 49.99,
+        "stock": 29,
+        "description": "CK One by Calvin Klein is a classic unisex fragrance, known for its fresh and clean scent. It's a versatile fragrance suitable for everyday wear.",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/thumbnail.webp"
+      },
+      {
+        "id": 16,
+        "title": "Apple",
+        "price": 1.99,
+        "stock": 8,
+        "description": "Fresh and crisp apples, perfect for snacking or incorporating into various recipes.",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/apple/thumbnail.webp"
+      },
+      {
+        "id": 14,
+        "title": "Knoll Saarinen Executive Conference Chair",
+        "price": 499.99,
+        "stock": 26,
+        "description": "The Knoll Saarinen Executive Conference Chair is a modern and ergonomic chair, perfect for your office or conference room with its timeless design.",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/thumbnail.webp"
+      },
+      {
+        "id": 29,
+        "title": "Juice",
+        "price": 3.99,
+        "stock": 50,
+        "description": "Refreshing fruit juice, packed with vitamins and great for staying hydrated.",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/juice/thumbnail.webp"
+      },
+      {
+        "id": 26,
+        "title": "Green Chili Pepper",
+        "price": 0.99,
+        "stock": 3,
+        "description": "Spicy green chili pepper, ideal for adding heat to your favorite recipes.",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/green-chili-pepper/thumbnail.webp"
+      },
+      {
+        "id": 30,
+        "title": "Kiwi",
+        "price": 2.49,
+        "stock": 99,
+        "description": "Nutrient-rich kiwi, perfect for snacking or adding a tropical twist to your dishes.",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/kiwi/thumbnail.webp"
       }
     ],
-    "likedCount": 2
+    "likedCount": 7
   },
   {
     "id": 1752076814387,
