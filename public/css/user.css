@@ -113,6 +113,21 @@
     transform: translateX(0);
 }
 
+.btn-box {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+#showLikedProductBtn, #showCartButton {
+    background-color: #ffffff0e;
+    backdrop-filter: blur(10px);
+    color: white;
+}
+#showLikedProductBtn:hover, #showCartButton:hover{
+    opacity: 1;
+    box-shadow: 0 0 10px white;
+}
+
 /* ---------------- hero page --------------- */
 .hero-page {
     width: 85%;
