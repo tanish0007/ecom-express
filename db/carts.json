@@ -4,21 +4,21 @@
     "userId": 1752036507942,
     "products": [
       {
-        "id": 7,
-        "title": "Chanel Coco Noir Eau De",
-        "quantity": 2,
-        "totalPrice": 259.98,
-        "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/thumbnail.webp"
-      },
-      {
         "id": 6,
         "title": "Calvin Klein CK One",
         "quantity": 3,
         "totalPrice": 149.97,
         "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/thumbnail.webp"
+      },
+      {
+        "id": 7,
+        "title": "Chanel Coco Noir Eau De",
+        "quantity": 3,
+        "totalPrice": 389.97,
+        "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/thumbnail.webp"
       }
     ],
-    "totalAmount": 409.9500000000001,
-    "totalQuantity": 5
+    "totalAmount": 539.94,
+    "totalQuantity": 6
   }
 ]

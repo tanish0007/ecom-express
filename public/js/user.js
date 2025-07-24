@@ -24,10 +24,27 @@ showCartButton.addEventListener("click", () => {
 });
 
 async function initUI() {
+    await fetchUserCart();
     setupPagination();
     await fetchProductsFromApi(30, 0);
     await checkLikedProducts();
     renderItems();
+}
+
+async function fetchUserCart() {
+    try {
+        const response = await fetch(`http://localhost:6565/api/cart/${loggedInUser.id}`);
+        const data = await response.json();
+        if (data.success) {
+            loggedInUser.cart = data.cart.products.map(item => ({
+                id: item.id,
+                quantity: item.quantity
+            }));
+            localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+        }
+    } catch (error) {
+        console.error("Error fetching user cart:", error);
+    }
 }
 
 async function fetchProductsFromApi(limit, skip) {
@@ -255,7 +272,7 @@ function addToDom(item) {
     title.textContent = item.name || "Unnamed Item";
     const price = document.createElement("span");
     price.classList.add("price");
-    price.textContent = `₹${(item.price || 0).toFixed(2)}`;
+    price.textContent = `₹${(item.price || 0)}`;
     titleRow.appendChild(title);
     titleRow.appendChild(price);
 
@@ -270,12 +287,10 @@ function addToDom(item) {
     const btnBox = document.createElement("div");
     btnBox.classList.add("button-box");
 
-    // Check if item is in cart
     const cartItem = loggedInUser.cart?.find(ci => ci.id === item.id);
     const quantityInCart = cartItem?.quantity || 0;
 
     if (quantityInCart > 0) {
-        // Create quantity controls
         const quantityControls = document.createElement("div");
         quantityControls.className = "quantity-controls";
         
@@ -293,7 +308,6 @@ function addToDom(item) {
         incrementBtn.innerHTML = '<i class="fa-solid fa-plus"></i>';
         incrementBtn.disabled = item.quantity <= 0;
         
-        // Add event listeners
         decrementBtn.addEventListener("click", async () => {
             try {
                 const response = await fetch(`http://localhost:6565/api/cart/${loggedInUser.id}/${item.id}`, {
@@ -306,7 +320,6 @@ function addToDom(item) {
                 
                 const result = await response.json();
                 if (result.success) {
-                    // Update local state
                     if (cartItem.quantity <= 1) {
                         loggedInUser.cart = loggedInUser.cart.filter(ci => ci.id !== item.id);
                     } else {
@@ -341,7 +354,6 @@ function addToDom(item) {
                 
                 const result = await response.json();
                 if (result.success) {
-                    // Update local state
                     if (cartItem) {
                         cartItem.quantity += 1;
                     } else {
@@ -367,7 +379,6 @@ function addToDom(item) {
         quantityControls.appendChild(incrementBtn);
         btnBox.appendChild(quantityControls);
         
-        // Add view cart button
         const viewCartBtn = document.createElement("button");
         viewCartBtn.className = "view-cart-btn button";
         viewCartBtn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> View Cart';
@@ -376,7 +387,6 @@ function addToDom(item) {
         });
         btnBox.appendChild(viewCartBtn);
     } else {
-        // Regular add to cart button
         const cartBtn = document.createElement("button");
         cartBtn.className = "addToCart button";
         cartBtn.textContent = "Add to Cart";
